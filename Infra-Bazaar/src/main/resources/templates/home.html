@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Language" content="en">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="cleartype" content="on">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+<meta name="facebook-domain-verification" content="kw2q5xq3518wzotgh0assfmkrdvlrg" />
+<link rel="apple-touch-icon" href=""> 
+<title>Infra Bazaar - Construction & Building Material Classified Site</title>
+<meta name="description" content="Buy, Sell, Rent, Auction, Valuation & Finance of Construction Equipment & Machinery, Spare Parts, Scrap & Salvage Online. infrabazaar.com is a one-stop marketplace for all your infra needs.">
+<meta name="keywords" content="construction equipment, building material, equipment rent, online auction, valuation, reverse auction, finance, heavy construction equipment, construction material">
+<meta property="og:title" content="Infra Bazaar - Construction Equipment & Building Material Classified Site">
+<meta property="og:description" content="Buy, Sell, Rent, Auction, Valuation & Finance of Construction Equipment & Machinery, Spare Parts, Scrap & Salvage Online. infrabazaar.com is a one-stop marketplace for all your infra needs.">
+<meta property="og:image" content="https://www.infrabazaar.com/site_assets/images/fblogo.png">
+<meta property="og:url" content="https://www.infrabazaar1.com/">
+<meta property="og:type" content="website" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+	<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+	integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://www.infrabazaar.com/site_assets/js/jquery-2.1.4.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://www.infrabazaar.com/site_assets/css/all_styles.css?ver=0.1" media="all" > 
+ 	<link rel="stylesheet" th:href="@{/css/home.css}">
+
+	 <script type="text/javascript" style="color: window;"> 
+		function display_c(){
+		var refresh=1000; // Refresh rate in milli seconds
+		mytime=setTimeout('display_ct()',refresh)
+		}
+		
+		function display_ct() {
+			var x = new Date()
+			var x1=x.toLocaleString();// changing the display to UTC string
+			document.getElementById('ct').innerHTML = x1;
+			tt=display_c();
+			 }
+		</script>
+	
+</head>
+<body onload=display_ct(); >
+	<br>
+	<br>
+	<br>
+	
+                        <!-- nav start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark cusSticky"> 
+  <div class="container-fluid">
+   <a class="navbar-brand" style="color: rgb(182, 71, 71); font-family: 'Times New Roman', Times, serif; font-size: x-large" href="#">Infra-Bazaar</a> 
+	
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 navbar-right text-uppercase nav-tabs">
+        <li class="nav-item ">
+          <a class="nav-link " style="color: rgb(66, 25, 25);" aria-current="page"; href="/home">  Home</a>
+        </li>
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" style="color: rgb(66, 25, 25);" href="/about"> About</a>
+        </li> -->
+         <li class="nav-item">
+          <a class="nav-link " style=" color: rgb(66, 25, 25);" href="/index">product</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link"style="color: rgb(66, 25, 25);" href="/login"> Login</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" style="color: rgb(66, 25, 25);" href="/user_registration">
+			SignUp</a>
+	
+        </li>
+	      </ul>
+      
+    </div>
+  </div>
+</nav>
+            <!-- nav close -->
+            
+   <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+<script>
+	$("#search-box").keyup(function(){
+		$.ajax({
+		type: "POST",
+		url: "https://www.infrabazaar.com/home/search_item",
+		data:'keyword='+$(this).val(),
+		beforeSend: function(){
+			//$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+		},
+		success: function(data){
+			
+				var obj = JSON.parse(data);
+			
+						 if(obj.status == false){
+							//var data1 = obj.data;
+							 var data1 = '<ul id="country-list" style="overflow-y: scroll;overflow-x: hidden;max-height: 450px;width: 32em;">';
+							  
+
+					$.each(obj.data, function(i, item) {
+					   //data1 += "<li onClick='selectCountry('"+item.eq_sub_category_name+"')'>"+item.eq_sub_category_name+"</li>"; 
+					 data1 +=   '<li  onclick="selectCountry(\'' + item.eq_sub_category_name + '\')">' + item.eq_sub_category_name + '</li>'
+					});
+					data1 += '</ul>';
+								$("#suggesstion-box").show();
+								$("#suggesstion-box").html(data1);
+						 }else if(obj.status == true){
+							window.location.href = obj.data;
+						 }else{
+			
+		}
+		}
+		});
+	});
+	var selectcountry1;
+//To select country name
+function selectCountry(val) { 
+	 selectcountry1 = val; 
+	$('#myFormsearch').submit();
+		$("#suggesstion-box").hide();   
+}
+
+function validateForm(val) { 
+		if (typeof selectcountry1 !== 'undefined') { 
+		$("#search-box").val(selectcountry1);
+			return true;
+			}else{
+					return false; 
+			} 
+}
+
+</script>
+<script type="text/javascript" src="https://www.infrabazaar.com/site_assets/js/memenu.js"></script>
+<script>
+	$(document).ready(function(){ 
+	$(".memenu").memenu();
+//	$(".memenu1").memenu();
+	});
+	
+/*************************/
+	</script>
+
+<script async src="https://www.infrabazaar.com/site_assets/newslider/js/slick-animation.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('.slider_new').slick({
+  autoplay: true,
+  speed: 800,
+  lazyLoad: 'progressive',
+  arrows: false, 
+  dots: true,
+  autoplaySpeed: 3000,
+}).slickAnimation();
+
+})
+</script>  
+		<div class="container-fluid maincontent">
+			
+
+				
+			<div class="col-md-12 col-lg-12 ib_menu_section">
+				
+					 <div class="carousel-inner slidehome">
+				
+<div class="banner_new " >
+<div class="slider_new stick-dots">
+	
+   
+	
+	  <div class="slide">
+      <div class="slide__img">
+        <img src="img/sliderback.png" alt="Slide_1">
+		
+      </div>
+      <div class="slide__content">
+        <div class="slide__content headings slide2">
+           <h2 class="animated" data-animation-in="fadeInRight" style="color:#ffffff">
+			Welcome to <br>
+<span style="color:#ffffff">Infra Bazaar</span>
+		   </h2>
+           <p class="animated" data-animation-in="fadeInRight" data-delay-in="0.2">
+			Infra Bazaar acts as a bridge between buyers and sellers and helps to maximize productivity with wide range of equipment offerings.
+		   </p>
+        </div>
+		<div class="img-block lt-img">
+			<img src="https://www.infrabazaar.com/site_assets/newslider/images/equipment_img.gif" alt="Mobile" class="animated" data-animation-in="fadeInUp" > -->
+		</div>
+      </div>
+    </div>
+	
+    <div class="slide">
+      <div class="slide__img">
+        <img src="https://www.infrabazaar.com/site_assets/newslider/images/slide_2.jpg" alt="Slide_1">
+      </div>
+      <div class="slide__content">
+        <div class="slide__content headings">
+           <h2 class="animated" data-animation-in="fadeInRight">
+			Need  <br>
+			<span>Building Materials?</span>
+		   </h2>
+		   
+           <p class="animated" data-animation-in="fadeInRight" data-delay-in="0.2">
+			We also offer building materials with assured quality and lowest prices. Everything you need is just one click away.
+		  	 </p>
+        </div>
+		<div class="img-block rt-img3" height="100px" width="100px">
+			<img src="img/build.jpg" alt="Mobile" class="animated" data-animation-in="fadeInUp" >
+		</div>
+      </div>
+    </div>
+	   <div class="slide">
+      <div class="slide__img">
+        <img src="https://www.infrabazaar.com/site_assets/newslider/images/Slide_1.jpg" alt="Slide_1" class="desk">
+		<img src="https://www.infrabazaar.com/site_assets/newslider/images/slide_3.jpg" alt="Slide_1" class="mobl">
+		
+      </div>
+      <div class="slide__content">
+        <div class="slide__content headings">
+		    <h1 class="animated" data-animation-in="fadeInRight" >
+			<span style="font-size:45px;color:#161e26">Construction Needs </span><br>
+<span>at your doorstep..</span>
+		   </h1>
+           <p class="animated" data-animation-in="fadeInLeft" data-delay-in="0.3">
+		   We are at halfway through to construct <br>
+		   your dreams, prioritizing values <br>
+		   at your fingertips.
+			</p>
+        </div>
+		<div class="img-block rt-img">
+			<img src="https://www.infrabazaar.com/site_assets/newslider/images/Mobile.png" alt="Mobile" class="animated" data-animation-in="fadeInUp" >
+		</div>
+      </div>
+    </div>
+  </div>
+
+</div> 
+</div> 
+			</div>
+			
+			</div>
+			<!-------tabs----->
+
+<div class="container-fluid maincontent homecont1" id="shopnow">   
+<div class="col-md-12 col-lg-12 homecont1align">
+<div class="col-md-12 col-lg-12 wthree_text_info">
+<div class="col-md-12">
+ <div class="title"> 
+		<h2 class="main_heading"><span style="color:#242323">Infra Bazaar </span><span style="color:#ea4237">CATEGORIES</span></h2>
+		<!-- <span id='ct' style="color: rgb(32, 31, 31); text-align: right;"></span>
+	 -->
+
+</div></div>
+<div class=" col-md-12 ib_text_cat"> <p class="ib_categories_sub_text_line1" style="color:#ee9366"><marquee>Infra Bazaar is first of its kind market place for Manufaturers, Service Providers and Traders across the Infrastructure domain.</marquee></p></div>
+
+	</div>	
+
+       	<div class="col-md-12 col-lg-12 mobpad" style="margin-bottom: 3%;">
+
+                <!-- Tabs on Plain Card -->
+                <div class="card-nav-tabs card-plain">
+				
+				<div class="col-md-12 ib_categories_menu">
+				<div class="col-md-4"></div>
+                    <div class="col-md-4 text-center">
+                      
+                                <ul class=" nav-tabs" data-tabs="tabs">
+                                    <li class="nav-item active">
+                                        <a class="nav-link1" href="#ib_Material" data-toggle="tab" text-align:center>Material</a>
+                                    </li>
+                                </ul>
+                         
+                    </div>
+					<div class="col-md-4"></div></div>
+					<div class="card-body ">
+                        <div class="tab-content text-center">
+                            <div class="tab-pane active" id="ib_Material">
+							<div class="col-md-12 categories_background_color_ib_new ">
+							<div class="col-md-4 col-sm-6 col-xs-6 categories_ib_img ib_cat_img_1 image_hover_text1" ><img alt="Cement" class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/material/cement.jpg">
+							
+							 <div class="img_description1">
+							<div class="inner__div1">
+							<h2 class="sub_text_ib_1">Cement</h2>
+							 <p class="inner_text_ib_11">43 Grade, 53 Grade...</p>
+							</div></div></div>
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_2 image_hover_text1" ><img  alt="Sand"  class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/material/sand.jpg">
+							
+							<div class="img_description2"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Sand</h2>
+							 <p class="inner_text_ib_11">M-Sand, Robo Sand...</p>
+							</div></div></div>
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text1" ><img class="img__img" alt="Aggregate"  src="img/Metalsheet.jpg">
+							 <div class="img_description3"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Metal Sheets</h2>
+							 <p class="inner_text_ib_11">Aluminium, Copper and Tin</p>
+							</div></div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_1 image_hover_text1" ><img class="img__img" alt="Bricks"  src="https://www.infrabazaar.com/site_assets/images/ibcategories/material/bricks.jpg">
+							 <div class="img_description4"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Bricks</h2>
+							 <p class="inner_text_ib_11">Clay, Concrete, Hollow...</p>
+							</div></div>
+							</div>
+							
+							
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_2 image_hover_text1" ><img class="img__img"  alt="Electrical" src="img/watertank.png">
+							<div class="img_description5"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Water Tanks</h2>
+							<p class="inner_text_ib_11">Sintext and Plastic Water Tanks </p>
+							</div></div>
+							</div>
+							
+							
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text1" >
+							<img class="img__img"  alt="Paints"  src="img/paint.png">
+							 <div class="img_description6"><div class="inner__div1">
+							<h2 class="sub_text_ib_1" >Paints</h2>
+							<p class="inner_text_ib_11" >Best Quality Paints</p>
+
+
+							</div></div>
+							</div>
+							</div>
+                             
+                            </div>
+                            <div class="tab-pane" id="ib_Equipment">
+							<div class="col-md-12 categories_background_color_ib_new ">
+                                
+							
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text2" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/equipment/backhoe.jpg" alt="Backhoe Loader"  >
+							 <div class="img_description7"><div class="inner__div1">
+							</div></div>
+							</div>
+							
+							
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text2" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/equipment/compactor.jpg" alt="Compactor">
+							 <div class="img_description8"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Compactor</h2>
+							<p class="inner_text_ib_11">Ace, Apollo, Atlas Copco...</p>
+							 <p class="inner_text_ib_2"><a href="https://www.infrabazaar.com/equipment/compactor/3" class="ib_more_details_e">
+											More >>
+											</a></p>
+							</div></div>
+							</div>
+							
+							
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text2" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/equipment/crane.jpg" alt="Crane">
+							 <div class="img_description9"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Crane</h2>
+							<p class="inner_text_ib_11">Escorts, Ace, Demag...</p>
+							 <p class="inner_text_ib_2"><a href="https://www.infrabazaar.com/equipment/crane/47" class="ib_more_details_e">
+											More >>
+											</a></p>
+							</div></div>
+							</div>
+							
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text2" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/equipment/excavator.jpg" alt="Excavator" >
+							 <div class="img_description10"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Excavator</h2>
+							<p class="inner_text_ib_11">Tata, Komatsu, Sany...</p>
+							 <p class="inner_text_ib_2"><a class="ib_more_details_e">
+											More >>
+											</a></p>
+							</div></div>
+							</div>
+							
+							
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text2" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/equipment/grader.jpg" alt="Grader">
+							 <div class="img_description11"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Grader</h2>
+							<p class="inner_text_ib_11">Beml, Liugong, Cat...</p>
+							 <p class="inner_text_ib_2"><a  class="ib_more_details_e">
+											More >>
+											</a></p>
+							</div></div>
+							</div>
+							
+							
+							<div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text2" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/equipment/mixer.jpg"  alt="Mixer">
+							<div class="img_description12"><div class="inner__div1">
+							<h2 class="sub_text_ib_1" style="text-align:center;font-size:5em">+</h2>
+							<p class="inner_text_ib_11" style="text-align:center">VIEW MORE</p>							
+							</div></div>
+							</div>
+						
+                            </div>
+                            </div>
+                            <div class="tab-pane" id="ib_All">
+                               <div class="col-md-12 categories_background_color_ib_new ">
+                                <div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text3" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/others/auction.jpg"  alt="Auction">
+							<div class="img_description13"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Auction</h2>
+							<p class="inner_text_ib_11">Online Auction, Reverse Auction</p>
+							 <p class="inner_text_ib_2"><a  class="ib_more_details_all">
+											More >>
+											</a><p>
+							</div></div>
+							</div>
+							
+							   <div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text3"><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/others/finance.jpg"  alt="Finance">
+							<div class="img_description14"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Finance</h2>
+							<p class="inner_text_ib_11">Equipment & Material Finance</p>
+							 <p class="inner_text_ib_2"><a href="https://www.infrabazaar.com/finance" class="ib_more_details_all">
+											More >>
+											</a><p>
+							</div></div>
+							</div>
+							
+							
+							   <div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text3" onclick="location.href='https://www.infrabazaar.com/valuation';"><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/others/valuation.jpg" alt="Valuation">
+							 <div class="img_description17"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Valuation</h2>
+							<p class="inner_text_ib_11">Full, Limited & Desktop Valuation</p>
+							 <p class="inner_text_ib_2"><a href="https://www.infrabazaar.com/valuation" class="ib_more_details_all">
+											More >>
+											</a><p>
+							</div></div>
+							</div>
+							
+							   <div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text3" onclick="location.href='https://www.infrabazaar.com/spareparts';"><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/others/spare_parts.jpg"  alt="Spare Parts">
+							 <div class="img_description16"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Spare Parts</h2>
+							<p class="inner_text_ib_11">Construction, Mining Equipment, Road Equipment</p>
+							 <p class="inner_text_ib_2"><a href="https://www.infrabazaar.com/spareparts" class="ib_more_details_all">
+											More >>
+											</a><p>
+							</div></div>
+							</div>
+					
+							   <div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text3" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/others/scrap.jpg"  alt="Scrap">
+							 <div class="img_description18"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Scrap</h2>
+							<p class="inner_text_ib_11">Material Equipment Scrap, ...</p>
+							 <p class="inner_text_ib_2"><a href="#" class="ib_more_details_all">
+											More >>
+											</a><p>
+							</div></div>
+							</div>
+							
+							 <div class="col-md-4 col-sm-6 col-xs-6  categories_ib_img ib_cat_img_3 image_hover_text3" ><img class="img__img" src="https://www.infrabazaar.com/site_assets/images/ibcategories/others/others.jpg"  alt="Others">
+							<div class="img_description15"><div class="inner__div1">
+							<h2 class="sub_text_ib_1">Others</h2>
+							<p class="inner_text_ib_11">Services & Many more</p>
+							 <p class="inner_text_ib_2"><a href="https://www.infrabazaar.com/material" class="ib_more_details_all">
+											Coming Soon
+											</a><p>
+							</div></div>
+							</div>
+							
+                            </div>
+                            </div>
+                        </div>
+                    </div></div>
+                <!-- End Tabs on plain Card -->
+            
+            </div>
+            </div>
+		</div>		
+<div class="container-fluid maincontent homecont1" style="background-image: url(https://www.infrabazaar.com/site_assets/images/greybck.jpg);background-size:cover">
+<div class="container mobpad homecont1align">		
+<div class="calculator">
+
+
+<div class="col-md-12 col-lg-12 wthree_text_info">
+<div class="col-md-12">
+ <div class="title"> 
+        <h2 class="main_heading"><span style="color:#272729">HOW </span><span style="color:#10a69c"> IT WORKS </span></h2>
+		 
+
+</div>	
+	<div class="col-md-12 col-lg-12 how_it_work_text_1" style="padding:0"><p class="text_c" style="color:#999593;padding: 0%;text-align: center;">3 step process for the order booking with easy credit options on the go</p></div>	
+
+    </div></div>
+	
+	</div>
+	
+	<div class="col-md-12 col-lg-12 mobpad" style="margin-bottom: 3%;">
+	
+				<div class="col-md-4 col-lg-4  col-xs-4 mobpadlr">
+					
+					<div class="w_service-item request_cls" style="height: 65vh;">
+                        
+                       <div>
+					  
+								<p style="text-align:center; margin-bottom:5%!important;"> 
+								<img src="https://www.infrabazaar.com/site_assets/images/howit-icons/Request_icon.png" alt="BUY" class="howudesc_img_new">
+								</p>
+								<P class="howudesc_p_h" style="color:white;">BUY</P>
+								<P class="howudesc_p" style="color:white;">Post your requirement on Building </P>
+								<P class="howudesc_p" style="color:white;">Materials.</P>
+								
+						</div>
+                    </div>
+				</div>
+
+				<div class="col-md-4 col-lg-4 col-xs-4 mobpadlr" >
+					<div class="w_service-item process_cls" style="height: 65vh;">
+                       <div class="">
+					  
+								<p style="text-align:center; margin-bottom:5%!important;"> 
+								<img  src="https://www.infrabazaar.com/site_assets/images/howit-icons/process.png" alt="PROCESS" class="howudesc_img_new" >
+								</p>
+								<P class="howudesc_p_h" style="color:white;">PROCESS</P>
+								<P class="howudesc_p" style="color:white;">Best Quality, Price and Quick Delivery will be taken into consideration.</P>
+								
+						</div>
+                    </div>
+				</div>
+
+				<div class="col-md-4 col-lg-4 col-xs-4 mobpadlr">
+					<div class="w_service-item deliver_cls" style="height: 65vh;">
+                       <div>
+								<p style="text-align:center;margin-bottom:5%!important;"> 
+								<img  src="https://www.infrabazaar.com/site_assets/images/howit-icons/deliver.png" alt="DELIVER" class="howudesc_img_new">
+								</p>
+								<P class="howudesc_p_h" style="color:white;">DELIVER</P>
+								<P class="howudesc_p" style="color:white;">Instant dispatch of materials once </P>
+								<P class="howudesc_p" style="color:white;">payment is completed.</P>
+								
+						</div>
+                    </div>
+
+				</div>
+
+<div class="howu_title">
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="container-fluid homecont1 maincontent" style=" background-image: url(site_assets/images/Howyou-benefit/howyoubenefit_banner.jpg);background-size: cover;">	
+<div class="container mobpad homecont1align col-md-12">		
+<div class=" calculator">
+
+
+<div class="col-md-12 col-lg-12 wthree_text_info how_you_benefit_1">
+<div class="col-md-12 col-lg-12">
+ <div class="title"> 
+        <h2 class="main_heading" ><span style="color:#16a89e">HOW </span> <span style="color:#ffb700;">YOU BENEFIT</span></h2>
+		
+    </div>
+	<p class="text_c">We pride on giving our elite subscribers the most suitable product at the best price on our infra sourcing platform
+ </p>
+	</div>
+	</div>
+<div class="col-md-12 col-lg-12 mobpad" style="margin-bottom: 3%;">
+
+<div class="col-md-3 col-lg-3 col-xs-12 "style="    margin-bottom: 10px;">
+<div class="how_you_benefit_main">
+ <div class="square-price"> 
+					<p class="how_you_img_all"> 
+								<img src="https://www.infrabazaar.com/site_assets/images/Howyou-benefit/square-price.png" alt="BEST PRICE">
+					</p>
+					<h4 class="ssb-title bestprice_h4">BEST PRICE</h4> 
+					<!--<p  class="bestprice_all_subdesc">100% Best offer</p>-->	<br>	
+					<p class="bestprice_all_desc">We offer best offers with unmatched convenience & effort.</p>						<br>
+				
+            </div>
+
+</div>
+</div>
+
+<div class="col-md-3 col-lg-3 col-xs-12" style="    margin-bottom: 10px;">
+<div class="how_you_benefit_main">
+ <div class="square-quality"> 
+					<p class="how_you_img_all"> 
+								<img src="https://www.infrabazaar.com/site_assets/images/Howyou-benefit/square-quality.png" alt="GREAT QUALITY">
+					</p>
+					<h4 class="ssb-title bestprice_h4">GREAT QUALITY</h4> 
+					<!--<p class="bestprice_all_subdesc">High Rating Product</p>	--><br>
+					<p class="bestprice_all_desc">Highly rated, reviewed and certified products on the go.</p>	 <br>
+											
+            </div>
+
+</div>
+</div>
+
+<div class="col-md-3 col-lg-3 col-xs-12" style="    margin-bottom: 10px;">
+<div class="how_you_benefit_main">
+ <div class="square-suppliers"> 
+					<p class="how_you_img_all"> 
+								<img src="https://www.infrabazaar.com/site_assets/images/Howyou-benefit/square-suppliers.png" alt="GENUINE SUPPLIERS" >
+					</p>
+					<h4 class="ssb-title bestprice_h4">GENUINE SUPPLIERS</h4> 
+					<!--<p class="bestprice_all_subdesc">100% Trusted Policies</p>--> <br> 
+					<p class="bestprice_all_desc">Trusted suppliers with good inventory and supply chain systems.</p>	 <br>						
+            </div>
+
+</div>
+</div>
+
+<div class="col-md-3 col-lg-3 col-xs-12" style="    margin-bottom: 10px;">
+<div class="how_you_benefit_main">
+ <div class="square-finance"> 
+					<p class="how_you_img_all"> 
+								<img src="https://www.infrabazaar.com/site_assets/images/Howyou-benefit/square-finance.png" alt="BANK FINANCE">
+					</p>
+					<h4 class="ssb-title bestprice_h4">QUICK DELIVERY</h4> 
+					<p class="bestprice_all_subdesc">Super fast on location delivery</p>	<br>
+					
+            </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+		<div class="container-fluid maincontent mobno homecont1" style="background-image: url(brandback.png);background-size:cover">	
+	<div class="col-md-12 col-lg-12 homecont1align">
+	<div class="col-md-12 col-lg-12">
+	<div class="title"> 
+        <h2 class="main_heading" ><span style="color:#272729">TRUSTED  </span> <span style="color:#ffb700;">BRANDS & CLIENTS</span></h2>
+		<p class="text_c">We are associated with multiple brands and construction partners to support & organize the infrastructure domain</p>
+    </div>
+    </div>
+	<div class="col-md-12 col-lg-12 our_brands_new" style="padding:0% 13%;">
+	
+	
+	
+	<div id="carousel-example-generic" class="carousel slide">
+  <!-- Indicators -->
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+       <!-- Slide -->
+    <div class="item  brand-item">
+        <div class="col-md-12 home_slider_brand">
+            <div class="col-md-15 col-xs-6 clients">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/brand-1.jpg" alt="Ramco">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/brand-2.jpg" alt="Bharathi">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/brand-3.jpg" alt="Chettinad">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/brand-4.jpg" alt="cc">
+                
+            </div>
+			<div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/brand-5.jpg" alt="Idia Cements">
+                
+            </div>
+			
+        </div>
+		 <div class="col-md-12 home_slider_brand">
+		 <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/Ashoka_2.jpg" alt="Ashoka">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/clix_12.jpg" alt="clix">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/essar_9.jpg" alt="essar">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/gmr_4.jpg" alt="gmr">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/gupta_16.jpg" alt="gupta">
+                
+            </div>
+			
+        </div>
+    </div>
+       <!-- Slide -->
+    <div class="item brand-item">
+         <div class="col-md-12 home_slider_brand">
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/bajaj.jpg" alt="bajaj">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/havells.jpg" alt="havells">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/orient.jpg" alt="orient">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/polycab.jpg" alt="polycab">
+                
+            </div>
+			<div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/wipro.jpg" alt="wipro">
+                
+            </div>
+			
+        </div>
+		 <div class="col-md-12 home_slider_brand">
+		 <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/gvpr_10.jpg" alt="gvpr">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/hcc_8.jpg" alt="hcc">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/jkumar.jpg" alt="jkumar">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/knrc_5.jpg" alt="knrc">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/Lanco.jpg" alt="Lanco">
+                
+            </div>
+			
+        </div>
+		</div>
+       <!-- Slide -->
+    <div class="item brand-item active">
+        <div class="col-md-12 home_slider_brand">
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/asian_paints.jpg" alt="asian paints">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/berger_paints.jpg" alt="berger paints">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/dulux_paints.jpg" alt="dulux paints">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/indigo_paints.jpg" alt="indigo paints">
+                
+            </div>
+			<div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/home/nippon_paints.jpg" alt="nippon paints">
+                
+            </div>
+			
+        </div>
+		 <div class="col-md-12 home_slider_brand">
+		 <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/Meil_15.jpg" alt="Meil">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/NCC_6.jpg" alt="NCC">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/Punji_3.jpg" alt="Punji">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/sadbhav_11.jpg" alt="sadbhav">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/sew_7.jpg" alt="sew">
+                
+            </div>
+			
+        </div>
+    </div>
+ <div class="item brand-item">
+        <div class="col-md-12 home_slider_brand">
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/bajaj.jpg" alt="bajaj">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/cera.jpg" alt="cera">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/hindware.jpg" alt="hindware">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/kajaria.jpg" alt="kajaria">
+                
+            </div>
+			<div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/sonata.jpg" alt="sonata">
+                
+            </div>
+			
+        </div>
+		 <div class="col-md-12 home_slider_brand">
+		 <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/Meil_15.jpg" alt="Meil">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/NCC_6.jpg" alt="NCC">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/Punji_3.jpg" alt="Punji">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/sadbhav_11.jpg" alt="sadbhav">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/sew_7.jpg" alt="sew">
+                
+            </div>
+			
+        </div>
+    </div>
+	
+	
+	 <div class="item brand-item">
+        <div class="col-md-12 home_slider_brand">
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/astral.jpg" alt="astral">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/ajay.jpg" alt="ajay">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/dutton.jpg" alt="dutton">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/finolrx.jpg" alt="finolex">
+                
+            </div>
+			<div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/Supreme.jpg" alt="Supreme">
+                
+            </div>
+			
+        </div>
+		 <div class="col-md-12 home_slider_brand">
+		 <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/Meil_15.jpg" alt="Meil">
+                
+            </div>
+            <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/NCC_6.jpg" alt="NCC">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/Punji_3.jpg" alt="Punji">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/sadbhav_11.jpg" alt="sadbhav">
+                
+            </div>
+           <div class="col-md-15 col-xs-6">
+                <img style="height:auto !important" src="https://www.infrabazaar.com/site_assets/images/clients_logos/sew_7.jpg" alt="sew">
+                
+            </div>
+			
+        </div>
+    </div>
+</div> <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="icon-next"></span>
+  </a>
+					</div>
+		</div>
+		</div>
+		</div> 
+	
+    <script>
+    	 $(document).ready(function() {
+			 $('#carousel-example-generic').carousel({wrap: true});
+			 $('#myCarousel').carousel({
+				 
+				 interval: 6000
+				 
+				 });
+$('#myCarousel').bind('slide.bs.carousel', function (e) {
+	 
+		 	$('img[usemap]').rwdImageMaps();
+			 });
+           
+		});
+    </script>
+ 
+ 
+<script> 
+
+$(".image_hover_text1").hover(function(){
+    $('#cement_home_ib_1').hide();
+},function(){
+    $('#cement_home_ib_1').show();
+});
+$(".image_hover_text2").hover(function(){
+    $('#sand_home_ib_1').hide();
+},function(){
+    $('#sand_home_ib_1').show();
+});
+$(".image_hover_text3").hover(function(){
+    $('#aggregate_home_ib_1').hide();
+},function(){
+    $('#aggregate_home_ib_1').show();
+});
+$(".image_hover_text4").hover(function(){
+    $('#bricks_home_ib_1').hide();
+},function(){
+    $('#bricks_home_ib_1').show();
+});
+$(".image_hover_text5").hover(function(){
+    $('#electrical_home_ib_1').hide();
+},function(){
+    $('#electrical_home_ib_1').show();
+});
+$(".image_hover_text6").hover(function(){
+    $('#paints_home_ib_1').hide();
+},function(){
+    $('#paints_home_ib_1').show();
+});
+</script> 
+ <div class="footer container-fluid maincontent " style="margin:0;padding:0;">
+			
+			<div class=" maincontent contactus_footer" >
+<div class="col-md-12 col-lg-12 how_to_find_us_main how_to_find_us_main_left_null mobpad">
+<div class="col-md-5 col-lg-5 how_to_find_us_main_left_null mobpad">
+
+	<div class="title"> 
+        <div class="col-lg-12 col-md-12"><h2 class="main_heading_how_find_us" style="text-align:left;padding-left:30px;font-size:2em !important"><span style="text-align:left;color:#fff">CONNECT WITH US</span></h2></div>
+	<div class="col-md-12 col-lg-12">
+	<div class="col-md-12 address_how_find_us">
+	<div class="col-lg-2 col-md-2 col-xs-2">
+		<img src="https://www.infrabazaar.com/site_assets/images/Address-icon.png" alt="Address"> 
+		</div><div class="col-lg-8 col-md-10 col-xs-10 padding_right_null_address">
+		<h4>ADDRESS</h4>
+		<p>CDAC STDC Thiruvanthapuram,Kerala,India ,PinCode-695010</p>
+									</div>
+    </div>
+    </div>
+	<div class="col-md-12 col-lg-12">
+	<div class="col-md-12 address_how_find_us">
+	<div class="col-lg-2 col-md-2 col-xs-2">
+		<img src="https://www.infrabazaar.com/site_assets/images/Phone_icon.png"  alt="Phone"> 
+		</div><div class="col-lg-10 col-md-10 col-xs-10 padding_right_null_address">
+		<h4>CALL US</h4>
+		<p>+91 7498400611</p>
+		<p>+91 7447854202</p>
+									</div>
+    </div>
+    </div>
+	<div class="col-md-12 col-lg-12">
+	<div class="col-md-12 address_how_find_us">
+	<div class="col-lg-2 col-md-2 col-xs-2">
+		<img src="https://www.infrabazaar.com/site_assets/images/Mail_icon.png"   alt="Mail"> 
+		</div><div class="col-lg-10 col-md-10 col-xs-10 padding_right_null_address">
+		<h4>EMAIL US</h4>
+		<p>infrabazaar22dac@gmail.com</p>
+									</div>
+    </div>
+    </div>
+    </div>
+</div>
+<div class="col-md-7 col-lg-7">
+<p style="text-align:center;margin-top:0%;color:#fff;">&nbsp;</p>
+<div class="col-md-12 col-lg-12" style="margin-top:0%">
+<div class="col-md-4 col-lg-4">
+<input class="form-control contact_name" autocomplete="off"  id="contact_name"  pattern="^[a-zA-Z0-9]+$" onpaste="return false;" onCopy="return false" type="text" name="" value="" placeholder="Name">
+</div>
+<div class="col-md-4 col-lg-4">
+    <input class="form-control contact_mobile" autocomplete="off"  pattern="^[0-9]+$"  id="contact_mobile" type="text" onpaste="return false;" onCopy="return false" name="" value="" placeholder="Mobile"></div>
+<div class="col-md-4 col-lg-4"><input class="form-control contact_emial"  autocomplete="off"  onpaste="return false;" onCopy="return false" id="contact_email" type="text" name="" value="" placeholder="Email"></div></div>
+<div class="col-md-12 col-lg-12" style="margin-top:5%;margin-bottom:5%"><div class="col-md-12">
+    <textarea name="texta"  autocomplete="no"  pattern="^[a-zA-Z0-9]+$" onpaste="return false;" onCopy="return false" id="contact_message" placeholder="Drop your message..." class="form-control"></textarea></div></div><div class="col-md-12" style="margin-bottom:5%"><div class="col-md-12"><P style="text-align:left;"><button class="btn btn-light" id="contact_submit"style="color: #fff;background:#21bdbc;">SEND MESSAGE</button></P></div></div>
+    <div id="ResponseMessage"></div>
+</div>
+</div>
+
+</div>
+				<div class="footer-top-contact center hidden-sm hidden-xs"  style="background: #9b1a23;opacity:0.9">
+		
+					<div class="col-xs-12 col-sm-12  left_side_ib_footer hidden-md hidden-lg">
+					
+						<div class="col-xs-6 col-xs-6 center-block" style="padding-left:0%;padding-bottom:5%;">
+								<ul>
+										<li class="mainheading">COMPANY</li>
+									<li><a href="https://www.infrabazaar.com/aboutus">About Us</a></li>
+									<li><a href="https://www.infrabazaar.com/blog">Blog</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-6 col-xs-6 center-block" style="padding-left:8%;padding-bottom:5%;">
+							<ul>
+											<li class="mainheading">SUPPORT</li>
+									<li><a href="https://www.infrabazaar.com/home/buyoninfrabazaar">Buy on Infrabazaar</a></li>
+									<li><a href="https://www.infrabazaar.com/home/selloninfrabazaar">Sell on Infrabazaar</a></li>
+							</ul>
+						</div>
+						<div class=" col-xs-6 col-xs-6 center-block" style="padding:0px;padding-bottom:5%;">
+								<ul>
+										<li class="mainheading" style="padding:0px; margin:0px; text-align:left;font-size:12px;">INFRA BAZAAR TECH PVT LTD</li>
+									<li style=" text-align:left;">
+									<a>CDAC STDC Thiruvanthapuram,Kerala,India ,PinCode-695010</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-6 col-xs-6  center-block" style="padding-left:11.5%;;padding-bottom:5%;">
+							<ul>
+									<h4 style=" font-size: 1.1em; margin:0px 0px 8px 0px; color:#fff;">Need help ?</h4>
+									<li style="font-size:0.8em; color:#fff!important; margin:0px; padding:0px;">+91 7498400611</li>
+									<li style="font-size:0.8em; color:#fff!important; margin:0px; padding:0px;">+91 7447854202</li>
+									<li style="font-size:0.8em; color:#fff; margin:0px; padding:0px;">Contact@infrabazaar.com</li>
+							</ul>
+							<div>
+				</div>
+						</div>
+					</div>
+					</div>
+					<div class="col-md-12 col-lg-12  left_side_ib_footer hidden-sm hidden-xs" style="    margin: 0px;    padding: 0px;">
+ 	<div style="margin-top:2%;">
+					<div class="col-md-4 col-lg-4 " style="padding-left:75px;">
+								<ul>
+										<li class="mainheading" style="padding:0px; margin:0px; ">INFRA BAZAAR PVT LTD</li>
+									<li>
+									<a> CDAC, TVM<br>
+										CDAC CDAC STDC Thiruvanthapuram,Kerala <br> India.<br> Pincode : 695010</a></li>
+							</ul>
+						</div>
+						<div class="col-md-2 col-lg-2 center-block" style="padding-left:75px;">
+								<ul>
+										<li class="mainheading">COMPANY</li>
+									<li><a  href="/about">About Us</a></li>
+									<li><a href="/index">Sitemap</a></li>
+							</ul>
+						</div>
+					<div class="col-md-3 col-lg-3 center-block" style="padding-left:75px;">
+							<!-- <ul>
+											<li class="mainheading">SUPPORT</li>
+									<li><a href="https://www.infrabazaar.com/home/buyoninfrabazaar">Buy on Infra Bazaar</a></li>
+									<li><a href="https://www.infrabazaar.com/home/selloninfrabazaar">Sell on Infra Bazaar</a></li>
+		
+							</ul> -->
+						</div> 
+					
+						<div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 center-block" style="padding-left:75px;">
+							<ul>
+									<h4 style="font-size: 1.1em; margin:0px 0px 8px 0px; color:#fff;">NEED HELP ?</h4>
+									<li style="font-size:0.8em; color:#fff!important; margin:0px; padding:0px;">+91 4798400611</li>
+									<li style="font-size:0.8em; color:#fff!important; margin:0px; padding:0px;">+91 7447854202</li>
+									<li style="font-size:0.8em; color:#fff; margin:0px; padding:0px;">Contact@infrabazaar.com</li>
+									<li style="margin-top:15px;">
+										</li>
+																				
+										<a href="https://www.facebook.com" target="_blank" ><i class="fa fa-facebook-official" aria-hidden="true" style="color:#fff; font-size:26px;"></i></a>
+										<a href="https://twitter.com" target="_blank" ><i class="fa fa-twitter-square" aria-hidden="true" style="color:#fff; font-size:26px;"></i></a>
+										<a href="https://www.pinterest.com" target="_blank" ><i class="fa fa-pinterest-square" aria-hidden="true" style="color:#fff; font-size:26px;"></i></a>
+										<a href="https://www.linkedin.com" target="_blank" ><i class="fa fa-linkedin-square" aria-hidden="true" style="color:#fff; font-size:26px;"></i></a>
+										<a href="https://www.instagram.com" target="_blank" ><i class="fa fa-instagram" aria-hidden="true" style="color:#fff; font-size:26px;"></i></a>
+										<a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true" style="color:#fff; font-size:26px;"></i></a>
+			
+							</ul>
+							<div>	
+				</div>
+						</div>
+					</div>
+					</div>
+					
+				</div> 
+				<div class="footer_ib col-md-12 col-lg-12 hidden-sm hidden-xs">
+
+<div class="col-md-12 col-lg-12 col-sm-12 col-sm-6"><p style="text-align:center; color:#000;    font-size: 16PX;">Copyright © 2022 Infra Bazaar Pvt Ltd.</p></div>
+				
+	</div> 
+	<div class="footer_ib col-md-12 col-lg-12 hidden-lg hidden-md">
+		 
+<div class="col-md-4 col-lg-4 col-sm-12 col-sm-12" align ="center"><p class="copy_right_01" >
+Copyright © 2022 Infra Bazaar Pvt Ltd. </p></div>
+	</div> 
+			</div>
+		
+	<div id="myModal_footer" class="modal fade" style=""  role="dialog" data-keyboard="false" data-backdrop="static">
+		<div class="modal-dialog ">
+			<div class="modal-content ib_modal_login" >
+				<div class="row text-center">
+						<img class="backgroundphoneimg" src="https://www.infrabazaar.com/assets/site/images/mobile.png" alt="infra bazaar OTP background Image">
+						<div class="full_width">
+							<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+						</div>
+						<div class="opt_centered">
+							<p class="p_line_ib_1">OTP Verification</p> <p class="p_line_ib_2" id="p_line_ib_2"> </p> 
+							<div class="row">
+								<div class="col-lg-1 col-sm-1 col-xs-0 removedivinmobile">&nbsp;</div>
+									<div class="col-lg-10 col-sm-10  col-xs-10">
+										<input id="codeBox1" class="otpclass" type="text" onKeyPress="if(this.value.length==1) return false;" onkeyup="onKeyUpEvent(1, event)" onfocus="onFocusEvent(1)"/>
+										<input id="codeBox2" class="otpclass" type="text" onKeyPress="if(this.value.length==1) return false;" onkeyup="onKeyUpEvent(2, event)" onfocus="onFocusEvent(2)"/>
+										<input id="codeBox3" class="otpclass" type="text" onKeyPress="if(this.value.length==1) return false;" onkeyup="onKeyUpEvent(3, event)" onfocus="onFocusEvent(3)"/>
+										<input id="codeBox4" class="otpclass" type="text" onKeyPress="if(this.value.length==1) return false;" onkeyup="onKeyUpEvent(4, event)" onfocus="onFocusEvent(4)"/>
+										<input type="hidden" id="mobilenumber">
+									</div>
+								<div class="col-lg-1 col-sm-1 col-xs-0 removedivinmobile">&nbsp;<br>&nbsp;</div></div>
+								<div class="row">
+									<div class="col-lg-1 col-sm-1 col-xs-0 removedivinmobile">&nbsp;</div>
+									<div class="col-lg-10 col-sm-10 col-xs-12 mobileview" >
+											<span id="otperror1" ></span>
+										
+										<p style="text-align:center;"><a onclick="javascript:genarate_OTP();" id="resendcode1">Resend OTP</a></p>
+
+											<br><div class="countdown"></div>
+										<span id="successdata" ></span>
+									</div>
+									<div class="col-lg-1 col-sm-1 col-xs-0 removedivinmobile">&nbsp;<br>&nbsp;</div>
+								</div>
+						</div>
+				</div> 
+			</div>
+		</div>
+	</div>
+<script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script defer src="https://www.infrabazaar.com/site_assets/js/slick.js"></script>
+<script async src="https://www.infrabazaar.com/site_assets/js/site.js?ver=0.09"></script>
+
+</body>   
+</html>
+
+			

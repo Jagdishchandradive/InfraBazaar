@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+	integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+    <title th:text="${title}">Base html</title>
+  </head>
+  <body>
+    
+    
+    <!-- NAVBAR  -->
+    
+    
+    <nav class="navbar navbar-expand-lg" style="background-color: rgba(241, 221, 248, 0.945) !important;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" style="color: rgb(182, 71, 71); font-family: 'Times New Roman', Times, serif; font-size: x-large">Infra-Bazar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase p-2">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/"  style="color: rgb(66, 25, 25);"> Home</a>
+        </li>
+        
+        
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/about"  style="color: rgb(66, 25, 25);">About</a>
+        </li> -->
+         <li class="nav-item">
+          <a class="nav-link" href="/index"  style="color: rgb(66, 25, 25);">product</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/login"  style="color: rgb(66, 25, 25);"> Login</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/user_registration"  style="color: rgb(66, 25, 25);"> Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+   
+    
+    <!-- End of Navbar -->
+    
+    <div th:replace="${content}"></div>
+    
+    
+    
+     <!-- Footer -->
+    
+    
+    
+    
+    <div class="container-fluid my-2">
+ 
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #000000"
+          >
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">
+              Infra-Bazar
+            </h6>
+            <p>
+              Buy building & construction materials online at wholesale price in India. 
+              we offer all types of construction materials and services in one place.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <p>
+              <a style="text-decoration:none" class="text-white">Water Tanks</a>
+            </p>
+            <p>
+              <a style="text-decoration:none" class="text-white">Steels</a>
+            </p>
+            <p>
+              <a style="text-decoration:none" class="text-white">Cements</a>
+            </p>
+            <p>
+              <a style="text-decoration:none" class="text-white">Other Essentials</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+            <p><i class="fas fa-home mr-3"></i> New Delhi,India</p>
+            <p><i class="fas fa-envelope mr-3"></i> infrabazar@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> + 91 7498400611</p>
+            <p><i class="fas fa-print mr-3"></i> +91 7447854202</p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3  col-xl-4 mx-auto mt-3">
+          <!-- <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3"> -->
+ <!-- <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6> -->
+
+            <!-- Facebook -->
+            <!-- <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #3b5998"
+               href="#!"
+               role="button"
+               ><i class="fab fa-facebook-f"></i
+              ></a> -->
+
+            <!-- Twitter -->
+            <!-- <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #55acee"
+               href="#!"
+               role="button"
+               ><i class="fab fa-twitter"></i
+              ></a> -->
+
+            <!-- Google -->
+            <!-- <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #dd4b39"
+               href="#!"
+               role="button"
+               ><i class="fab fa-google"></i
+              ></a> -->
+
+            <!-- Instagram -->
+            <!-- <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #ac2bac"
+               href="#!"
+               role="button"
+               ><i class="fab fa-instagram"></i
+              ></a> -->
+
+            <!-- Linkedin -->
+            <!-- <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #0082ca"
+               href="#!"
+               role="button"
+               ><i class="fab fa-linkedin-in"></i
+              ></a> -->
+            <!-- Github -->
+            <!-- <a
+               class="btn btn-primary btn-floating m-1"
+               style="background-color: #333333"
+               href="#!"
+               role="button"
+               ><i class="fab fa-github"></i
+              ></a>  -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29795.17706220509!2d75.5592!3d21.01679!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd90fa4a1eab90f%3A0x37f67bd21bff0a3c!2sJalgaon%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1626161545321!5m2!1sen!2sus" frameborder="0" style="border: 1px groove; width: 100%; height: 250px;  box-shadow: 4px 3px 8px 1px #969696;
+              -webkit-box-shadow: 4px 3px 8px 1px #969696;" allowfullscreen></iframe>
+          </div>
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2022 Copyright:
+      <a style="text-decoration:none" class="text-white" href="/"
+         >InfraBazar.com</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>
+<!-- End of footer -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+  </body>
+</html>

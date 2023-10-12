@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="fragments.html :: headerfiles">
+</head>
+<body style="background-image:url(/images/nippo.jpg); background-size:cover;">
+	<header th:insert="fragments.html :: nav"></header>
+	<div class="container">
+	<h3 class="display-4 my-3">Your Cart Product!</h3>
+		<div class="row">
+			<ul class="list-group col-9">
+				<li class="list-group-item d-flex justify-content-around">
+					<span class="my-auto h6">Product Image</span> 
+					<span class="my-auto h6">Product</span> 
+					<span class="my-auto h6">Price</span> 
+				</li>
+			</ul>
+			<ul class="list-group col-9" th:each="product : ${user.productList}">
+				<li class="list-group-item d-flex justify-content-around">
+					<img th:src="${product.image}" height="100"> 
+					<span class="my-auto" th:text="${product.productName}"></span> 
+					<span class="my-auto" th:text="'₹ '+${product.productPrice}"></span>
+				</li>
+			</ul>
+			<ul class="list-group col-9">
+				<li class="list-group-item d-flex justify-content-end">
+					<span class="h6" th:text="'Total : '+${total}"></span>
+				</li>
+				<li class="list-group-item d-flex justify-content-end">
+					<a  th:href="@{'~/profile/checkout/'}" type="button" class="btn btn-primary" >Check Out</a>
+					<!-- <a href="/checkout"  type="button" class="btn btn-primary" >Check Out</a> -->
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

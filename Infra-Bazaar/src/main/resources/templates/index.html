@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="fragments.html :: headerfiles">
+</head>
+<body style="background-image:url(/images/Civil.jpg); background-size: cover;">
+	<header th:insert="fragments.html :: nav"></header>
+	<div class="container">
+		<h1 class="display-5">Product Overview</h1>
+
+		<div class="d-flex justify-content-start p-2">
+			<a class="list-group-item mr-2" href="#" th:href="@{/allProduct}">All Product</a> 
+			<a class="list-group-item mr-2"	th:each="category : ${categoryList}" th:text="${category.categoryName}" href="#" th:href="@{'/getProducts/' + ${category.categoryId}}"></a>
+		</div>
+
+		<div class="row" >
+
+			<div class="col-sm-4" th:each="product : ${productList}" >
+
+				<div class="card mt-4" style="  border-radius: 2%; box-shadow: 4px 3px 8px 1px #ff0000;
+				-webkit-box-shadow: 4px 3px 8px 1px #750505; " >
+
+				<img th:src="${product.image}" class="card-img-top" alt="Product Image">
+					<div class="card-body">
+						<h5 th:text="${product.productName}" class="card-title"></h5>
+						<p th:text="${product.productDescription}" class="card-text"></p>
+						<p th:text="'₹'+${product.productPrice}" class="card-text"></p>
+						<a href="#" th:href="@{'~/profile/addToCart/' + ${product.productId}}" class="btn btn-outline-primary btn-sm">AddToCart</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
+

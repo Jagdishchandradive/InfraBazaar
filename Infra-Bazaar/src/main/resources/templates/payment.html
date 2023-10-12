@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">  -->
+	<link th:href="@{~/bootstrap.min.css}" rel="stylesheet">
+<!-- <link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet"> -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"> 
+ 	<link rel="stylesheet" th:href="@{/css/payment.css}">
+
+</head>
+<body>
+	<header th:insert="fragments.html :: nav"></header>
+	<div class="container">
+<div class="wrapper">
+  <div class="payment">
+    <div class="payment-logo">
+      <p>p</p>
+    </div>
+    
+    
+    <h2>Payment Gateway</h2>
+
+    <form th:action="@{'~/profile/placeorder/'}" method="post">
+    
+      <div class="form">
+      <div class="card space icon-relative">
+        <label class="label">Card holder:</label>
+        
+        <input 
+        type="text" 
+        class="input" 
+        name="name" 
+        placeholder="Card holder name" 
+        required 
+        pattern="[A-Za-z\s]{2,40}"
+        autocomplete="off" 
+        title="only characters are allowed"
+        minlength="4" 
+        maxlength="20"
+        >
+        
+        <i class="fas fa-user"></i>
+      </div>
+<div class="card space icon-relative"> 
+        <label >Card number:</label>
+        <!-- data-mask="0000 0000 0000 0000" placeholder="Card Number"  -->
+        <input type="number" class="input" required name="number" placeholder="Card number"  minlength="12" maxlength="16">
+        <i class="far fa-credit-card"></i>
+      </div>
+      
+      <div class="card-grp space">
+        <div class="card-item icon-relative">
+          <label class="label">Expiry date:</label>
+          <input type="text" name="expiry_date" minlength="4" maxlength="4" placeholder="00 / 00" class="input" required >
+          <i class="far fa-calendar-alt"></i>
+        </div>
+
+        <div class="card-item icon-relative">
+          <label class="label">CVV:</label>
+          <input type="number" class="input" name="cvv" placeholder="CVV" minlength="3" maxlength="3"required>
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+        
+      <div > 
+       <button class="btn btn-primary btn-block waves-effect waves-light"> Pay </button>
+      </div> 
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+</body>
+</html>

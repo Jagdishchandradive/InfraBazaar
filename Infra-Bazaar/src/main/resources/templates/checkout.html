@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+<title>Document</title>
+</head>
+<body style="background-color: rgba(49, 64, 204, 0.4);">
+	<header th:insert="fragments.html :: nav"></header>
+
+	<div class="container">
+
+		<!--Section: Block Content-->
+		<section class="mt-5 mb-4">
+
+			<!--Grid row-->
+			<div class="row">
+
+				<!--Grid column-->
+				<div class="col-lg-8 mb-4">
+
+					<!-- Card -->
+					<div class="card wish-list pb-1">
+						<div class="card-body">
+
+			<!-- form start -->
+			
+			<form action="" method="post" th:action="@{'~/checkout/checkout/'}" >
+				
+							<h5 class="mb-2">Order Details</h5>
+
+							<!-- Grid row -->
+							<div class="row">
+
+								<!-- Grid column -->
+								<div class="col-lg-6">
+
+									<!-- First name -->
+									<div class="md-form md-outline mb-0 mb-lg-4">
+										<label for="firstName">First name</label> <input type="text"
+											id="firstName" name="firstName" required class="form-control mb-0 mb-lg-2"
+											pattern="[A-Za-z\s]{2,40}" autocomplete="off" title="only characters are allowed" minlength="2" maxlength="40" placeholder="first name">
+									</div>
+
+								</div>
+								<!-- Grid column -->
+
+								<!-- Grid column -->
+								<div class="col-lg-6">
+
+									<!-- Last name -->
+									<div class="md-form md-outline">
+										<label for="lastName">Last name</label> <input type="text"
+											id="lastName" name="lastName" required class="form-control"
+											pattern="[A-Za-z\s]{2,40}" autocomplete="off" title="only characters are allowed" minlength="2" maxlength="40" placeholder="last name">
+									</div>
+
+								</div>
+								<!-- Grid column -->
+
+							</div>
+							<!-- Grid row -->
+
+							<!-- Country -->
+							<div class="d-flex flex-wrap">
+								<div class="select-outline position-relative w-100">
+									<label>Country - <strong>INDIA</strong></label>
+
+
+								</div>
+							</div>
+
+							<!-- Address Part 1 -->
+							<div class="md-form md-outline mt-2">
+								<label for="form14">Address </label> <input type="text"
+									required id="form14" name="address" placeholder="House number and street name"
+									class="form-control"
+									pattern="[A-Za-z\s]{2,40}" autocomplete="off" title="only characters are allowed" minlength="2" maxlength="40">
+							</div>
+
+							<!-- Postcode / ZIP -->
+							<div class="md-form md-outline mt-3">
+								<label for="form16">Postcode / ZIP</label> 
+								<br>
+								<input type="number" class="form-control" name="postcode" minlength="6" maxlength="6" placeholder="enter postcode" required>
+							</div>
+
+							<!-- Town / City -->
+							<div class="md-form md-outline mt-2">
+								<label for="form17"> City</label>
+								 <input 
+								 type="text" 
+								 required 
+								 class="form-control"
+								 name="city"
+								 placeholder="enter city" 
+								 minlength="2" 
+								 maxlength="40" 
+								 pattern="[A-Za-z\s]{2,40}"
+								 title="only characters are allowed"
+								 autocomplete="off"
+								 >
+
+							</div>
+
+							<!-- Phone -->
+							<div class="md-form md-outline mt-2">
+								<label for="form18">Phone</label> <input type="number" name="phone"
+									 required id="form18"
+									class="form-control"
+										pattern="^[+]91(9|8|7)\d{9}$" minlength="10" maxlength="10"  autocomplete="off" title="mobile number " placeholder="phone number">
+							</div>
+
+						</div>
+					</div>
+					<!-- Card -->
+
+				</div>
+				<!--Grid column-->
+
+				<!--Grid column-->
+				<div class="col-lg-4">
+
+					<!-- Card -->
+					<div class="card mb-4">
+						<div class="card-body">
+
+							<h5 class="mb-3"> Total Amount</h5>
+
+							<ul class="list-group list-group-flush">
+								<li
+									class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+									Amount Payable <span>₹<span th:text="${total}"></span></span>
+								</li>
+								<li
+									class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+									<div>
+										<strong>Total</strong> <strong>
+											<p class="mb-0">(including GST)</p>
+										</strong>
+									<!-- </div> <span><strong>₹<span th:text="${total}"></span></strong></span> -->
+									</div> <span><strong>₹<span th:text="${GSTtotal}"></span></strong></span>
+								</li>
+							</ul>
+								<button
+									class="btn btn-primary btn-block waves-effect waves-light">PlaceOrder</button>
+			<!-- form close --></form>
+				
+
+						</div>
+					</div>
+				</div>
+				<!--Grid column-->
+
+			</div>
+			<!--Grid row-->
+
+		</section>
+		<!--Section: Block Content-->
+
+
+	</div>
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+</html>

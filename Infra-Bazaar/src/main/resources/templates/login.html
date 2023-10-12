@@ -1,0 +1,149 @@
+<html xmlns:th="http://www.thymeleaf.org"> 
+
+<head>
+	<!-- th:insert="fragments.html :: headerfiles" -->
+<title>Log-in</title>
+
+<style>
+
+*{
+	padding: 0;
+	border: 0;
+}
+
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet"
+href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" style="color: window;"> 
+	function display_c(){
+	var refresh=1000; // Refresh rate in milli seconds
+	mytime=setTimeout('display_ct()',refresh)
+	}
+	
+	function display_ct() {
+		var x = new Date()
+		var x1=x.toLocaleString();// changing the display to UTC string
+		document.getElementById('ct').innerHTML = x1;
+		tt=display_c();
+		 }
+	</script>
+	
+
+</head>
+<body style=" background-image:  linear-gradient(rgba(0, 0, 1, 0.306),rgba(0, 0, 1, 0.306)),  url(/images/new2.jpg); background-size: cover; " onload=display_ct(); >
+
+
+    <!-- NAVBAR  -->
+    
+    
+    <nav class="navbar navbar-expand-lg" style="background-color: rgba(241, 221, 248, 0.945) !important;">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="/" style="color: rgb(182, 71, 71); font-family: 'Times New Roman', Times, serif; font-size: x-large">Infra-Bazar</a>
+		  
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase p-2 nav-tabs">
+			  <li class="nav-item">
+				<a class="nav-link " aria-current="page" href="/" style="color: rgb(66, 25, 25);"> Home</a>
+			  </li>
+			  
+			  
+			  <!-- <li class="nav-item">
+				<a class="nav-link" href="/about" style="color: rgb(66, 25, 25);">About</a>
+			  </li> -->
+			   <li class="nav-item">
+				<a class="nav-link" href="/index" style="color: rgb(66, 25, 25);">product</a>
+			  </li>
+			   <li class="nav-item">
+				<a class="nav-link" href="/login" style="color: rgb(66, 25, 25);">login </a>
+			  </li>
+			   <li class="nav-item">
+				<a class="nav-link" href="/user_registration" style="color: rgb(66, 25, 25);"> signup </a>
+			  </li>
+			</ul>
+		  </div>
+		  
+		</div>
+		
+	  </nav>
+	  <span id='ct' style="color: white; text-align: right;"></span>
+		  
+		  <!-- End of Navbar -->
+			  <div class="container" >
+
+
+		<br>
+		<br>
+	<br>
+		<div
+			style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px;">
+			<div class="card" style=" border-radius: 2%; box-shadow: 4px 3px 8px 1px #ff000018;
+			-webkit-box-shadow: 4px 3px 8px 1px #7505051c; background-color:rgba(0, 0, 0, 0.555) ">
+				<div class="card-header" style="color:cornsilk;">
+				<i class="fa fa-sign-in" aria-hidden="true"></i> Please Login
+				</div>
+				
+				<div class="card-block" style="padding: 24px;">
+				<h4 class="text-center" ><span  style="color: rgb(0, 255, 0);" th:text="${session.message}"></span></h4>
+
+					<form th:action="@{/login}" method="post">
+						<fieldset>
+									<!-- <th:block th:text="${#session.removeAttribute('message')}"></th:block> 						 -->
+							<div th:if="${param.error}" class="alert alert-danger">
+								Invalid username and password.</div>
+
+							<div th:if="${param.logout}" class="alert alert-success">
+								You have been logged out.</div>
+
+							<div class="form-group text-center">
+								<label for="email" style="font-family: cursive; color: rgba(255, 255, 0, 0.733);"><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</label>
+								 <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$" autocomplete="off" title="enter valid email">
+							</div>
+
+							<div class="form-group text-center">
+								<label for="password" style="font-family: cursive; color: rgba(255, 255, 0, 0.733); text-align:right;"><i class="fa fa-key" aria-hidden="true"></i> Password</label>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" required="required" >
+							</div>
+
+							<!-- <div class="form-check">
+								<input type="checkbox" class="form-check-input"
+									id="checkRememberMe" name="checkRememberMe" required="required">
+									<label 
+									class="form-check-label" for="checkRememberMe">Remember
+									me?</label>
+							</div> -->
+							
+							<div class=" d-grid gap-3 col-3 mx-auto" style="margin-top: 12px;">
+								<button  class="btn btn-outline-warning btn-sm">Log in</button>
+							</div>
+						
+						</fieldset>
+					</form>
+<!-- 							<div class="d-grid gap-3 col-3 mx-auto">	 -->
+<!-- 							<div class="">	
+ -->							<!-- <a href="" th:href="@{/user_registration}"> <label style="color:darkblue;">create new user</label> </a> -->
+							<a href="" th:href="@{/user_registration}"> <button class="btn btn-outline-warning btn-sm" style="padding-right: 16px;">create new user</button> </a> 
+<!-- 							<b><a style="text-decoration: none;" th:href="@{/forgot}"> <button class="btn btn-primary btn-block waves-effect waves-light" style="padding-right: 16px;">Forgot Password </button> </a></b> -->
+	<b><a style="text-decoration: none;" th:href="@{/forgot}"> <button class="btn btn-outline-warning btn-sm pull-right" style="padding-right: 16px;">Forgot Password </button> </a></b> 
+							
+							
+<!-- 				</div>
+ -->						<!-- 	<div class="container text-center">
+							
+							<a style="text-decoration: none;" th:href="@{/forgot}"> <button>Forgot Password ?</button> </a>
+							</div> -->
+								
+			</div>
+		</div>
+	</div>
+</body>
+</html>

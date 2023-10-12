@@ -1,0 +1,150 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <!-- th:insert="fragments.html :: headerfiles" -->
+<head>
+    
+  <title>signup</title>
+
+  <style>
+    *{
+      padding: 0;
+      border: 0;
+    }
+    
+    #signup:hover
+            {
+                transform:scale(1.02);            
+            }
+            
+    </style>
+    
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+ <link rel="stylesheet" th:href="@{/css/style.css}">
+ <link rel="stylesheet"
+ href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+ integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+ crossorigin="anonymous">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+<link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> 
+
+</head>
+<body style=" background-image: linear-gradient(rgba(0, 0, 1, 0.353),rgba(0, 0, 1, 0.353)), url(/images/new1.jpeg); background-size: cover; ">
+
+ 
+    <!-- NAVBAR  -->
+    
+     
+    <nav class="navbar navbar-expand-lg " style="background-color: rgba(241, 221, 248, 0.945) !important;">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light bg-primary"> -->
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/" style="color: rgb(182, 71, 71); font-family: 'Times New Roman', Times, serif; font-size: x-large">Infra-Bazaar </a> 
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase p-2 nav-tabs">
+          <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/" style="color: rgb(66, 25, 25);"> Home</a>
+          </li>
+          
+          
+          <!-- <li class="nav-item">
+          <a class="nav-link" href="/about"style="color: rgb(66, 25, 25);"> About</a>
+          </li> -->
+           <li class="nav-item">
+          <a class="nav-link" href="/index"style="color: rgb(66, 25, 25);">product</a>
+          </li>
+           <li class="nav-item">
+          <a class="nav-link" href="/login"style="color: rgb(66, 25, 25);">  Login</a>
+          </li>
+           <li class="nav-item">
+          <a class="nav-link" href="/user_registration"style="color: rgb(66, 25, 25);">SignUp</a>
+          </li>
+         
+        </ul>
+
+         
+        </div>
+      </div>
+      </nav>
+       
+        <!-- End of Navbar -->
+    
+      
+    <div class="container" style=" border-radius: 2%;" >
+    <br>
+    <br>
+
+    <div id=" signup "
+        style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 24px; padding: 24px; border-radius: 2%; ">
+        <div id=" signup " class="card" style="  border-radius: 2%; box-shadow: 4px 3px 8px 1px #ff000037;
+        -webkit-box-shadow: 4px 3px 8px 1px #7505054c; background-color:rgba(0, 0, 0, 0.555)  ">
+            <div id=" signup " class="card-header" style="color:cornsilk;">
+                <i class="fa fa-user-plus" aria-hidden="true"></i> SignUp
+
+            </div>
+                                 <!-- <span id='ct' style="color: white; text-align: right;"></span> -->
+            <div class="card-block"  style="padding: 24px;" id=" signup ">
+            			            	<h3 class="text-center" ><span  style="color: red;" th:text="${session.message}"></span></h3>
+            			            					<!-- <th:block th:text="${#session.removeAttribute('message')}"></th:block> -->
+                <form th:action="@{/user_registration}" method="post"  id=" signup " >
+                    <fieldset>
+                
+
+                          <div class="form-group text-center">
+                            <label for="firstName" style="font-family: cursive; color:rgba(255, 255, 0, 0.733);" ><i class="fa fa-user-o" aria-hidden="true"></i> FirstName</label>
+                             <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" pattern="[A-Za-z\s]{1,40}" required autocomplete="off" title="only characters are allowed" >
+                             
+<!--                              <p th:each="e : ${#fields.errors('firstName')}" th:text="${e}" ></p> -->
+                     
+                        </div>
+                        
+                        <div class="form-group text-center">
+                            <label for="lastName" style="font-family: cursive; color:rgba(255, 255, 0, 0.733);"><i class="fa fa-user-o" aria-hidden="true"></i> LastName</label>
+                             <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" pattern="[A-Za-z\s]{1,40}" required autocomplete="off" title="only characters are allowed" >
+                        </div>
+                        
+                        <div class="form-group text-center">
+                            <label for="email" style="font-family: cursive; color:rgba(255, 255, 0, 0.733);"><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</label> 
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$" required autocomplete="off" title="enter valid email" >
+                        </div>
+
+                        <div class="form-group text-center">
+                            <label for="password" style="font-family: cursive; color:rgba(255, 255, 0, 0.733);"><i class="fa fa-key" aria-hidden="true"></i> Password</label> 
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,20}" required autocomplete="off" title="Your password must be 8-20 characters long .Must contain 1 capital letter & 1 number.Must not contain spaces or emoticons.">
+                        </div>
+                        
+                        <input type="hidden" class="form-control" id="role" name="role"
+                                th:value="USER">
+
+                        <div class=" d-grid gap-3 col-3 mx-auto" style="margin-top: 12px;">
+                            <button type="submit"  class="btn btn-outline-warning btn-sm" >Sign Up</button>
+                        </div>
+                        <div class="errormessage"><span id="error_password" ></span> </div>
+				
+                    </fieldset>
+                </form>
+                <label for="#" style="font-family: cursive; color:bisque;">if you are already registered then click <a href="#"  th:href="@{/login}" > <button class="btn btn-outline-warning btn-sm"> login </button> </a> button</label>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 
+<script>
+  function Validate() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm_password").value;
+      if (password != confirmPassword) {
+         document.getElementById("error_password").innerHTML="Password and Confirm Password must be equal"
+         return false;
+      }
+      return true;
+  }
+</script> -->
+
+</body>
+</html>
