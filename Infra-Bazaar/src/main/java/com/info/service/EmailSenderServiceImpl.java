@@ -20,7 +20,7 @@ public class EmailSenderServiceImpl implements IEmailSenderService {
 	
 	@Async
 	@Override
-	public void sendSimpleEmail(String toEmail, String body, String subject)
+	public boolean sendSimpleEmail(String toEmail, String body, String subject)
 			throws MailException, InterruptedException {
 		try {
 			logger.info("Sleeping now.. ");
@@ -42,6 +42,7 @@ public class EmailSenderServiceImpl implements IEmailSenderService {
 			throw e;
 
 		}
+		return false;
 	}
 	private static void validateParameters(String toEmail, String body, String subject) {
 		if (toEmail == null || toEmail.isEmpty()) {
