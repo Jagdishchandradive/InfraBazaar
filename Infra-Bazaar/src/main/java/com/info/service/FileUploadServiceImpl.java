@@ -8,13 +8,19 @@ import java.nio.file.Paths;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ *
+ */
 @Service
 public class FileUploadServiceImpl implements FileUploadService {
 
 	private static String UPLOADED_FOLDER = System.getProperty("user.dir") + 
 			"\\src\\main\\resources\\static\\images\\";
-	
-	@Override
+
+    public FileUploadServiceImpl() {
+    }
+
+    @Override
 	public String upload(MultipartFile file) {
 		if (file.isEmpty())
 			return null;
